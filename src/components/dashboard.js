@@ -97,7 +97,6 @@ function Right({appList, appData}) {
                     appList?
                         appList.map( appItem => {
                             let appDataWithId = (appData[`${appItem.id}`]);
-                            console.log(appDataWithId);
                             return(
                                 <Card className="dashboard-right-app-item" key={appItem.id}>
                                     <div className="row">                                    

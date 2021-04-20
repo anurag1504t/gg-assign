@@ -46,46 +46,52 @@ function Stats(props) {
                                 <div className="app-item-publisher-name">{props.app.publisherName}</div>
                             </span>
                         </div>
-                        <div className="container">
-
-                        
-                        <div className="stats-app-table col-12 card">
-                            {
-                                props.data?
-                                <table>
-                                    <tbody>
-                                        <tr className="stat-table-row">
-                                            <th className="stat-table-date">Date</th>
-                                            <th>Revenue</th>
-                                            <th>Ad Requests</th>
-                                            <th>Ad Responses</th>
-                                            <th>Impressions</th>
-                                            <th>Click8s</th>
-                                            <th>Render Rate</th>
-                                        </tr>
-                                        {
-                                            props.data.map( (item, index) => {
-                                                let currDate = moment(item.date, 'DD-MM-YYYY').format("DD MMMM YYYY")
-                                                console.log(new Date(currDate));
-                                                return (
-                                                    <tr className="stat-table-row" key ={index}>
-                                                        <td className="stat-table-date">{new Intl.DateTimeFormat('en-US', {year:'numeric', month:'long', day:'2-digit'}).format(new Date(Date.parse(currDate)))}</td>
-                                                        <td>{item.revenue}</td>
-                                                        <td>{item.adRequest}</td>
-                                                        <td>{item.adResponse}</td>
-                                                        <td>{item.impressions}</td>
-                                                        <td>{item.clicks}</td>
-                                                        <td>{Math.round((item.impressions/item.adResponse)*100)}%</td>
-                                                    </tr>
-                                                )                                            
-                                            })
-                                        }
-                                    </tbody>
-                                </table>
-                                :
-                                <Loading />
-                            }
-                        </div>
+                        <div className="container">                        
+                            <div className="stats-app-table col-12 card">
+                                {
+                                    props.data?
+                                    <table>
+                                        <tbody>
+                                            <tr className="stat-table-row">
+                                                <th className="stat-table-date">Date</th>
+                                                <th>Revenue</th>
+                                                <th>Ad Requests</th>
+                                                <th>Ad Responses</th>
+                                                <th>Impressions</th>
+                                                <th>Click8s</th>
+                                                <th>Render Rate</th>
+                                            </tr>
+                                            {
+                                                props.data.map( (item, index) => {
+                                                    let currDate = moment(item.date, 'DD-MM-YYYY').format("DD MMMM YYYY")
+                                                    let date = new Date(currDate).getDate();
+                                                    let year = new Date(currDate).getFullYear();
+                                                    let month = new Date(currDate).toLocaleString('default', { month: 'long' });
+                                                    switch(date) {
+                                                        case 1: date = date + "st";break;
+                                                        case 2: date = date + "nd";break;
+                                                        case 3: date = date + "rd";break;
+                                                        default: date = date + "th";
+                                                    }
+                                                    return (
+                                                        <tr className="stat-table-row" key ={index}>
+                                                            <td className="stat-table-date">{`${date} ${month}, ${year}`}</td>
+                                                            <td>{item.revenue}</td>
+                                                            <td>{item.adRequest}</td>
+                                                            <td>{item.adResponse}</td>
+                                                            <td>{item.impressions}</td>
+                                                            <td>{item.clicks}</td>
+                                                            <td>{Math.round((item.impressions/item.adResponse)*100)}%</td>
+                                                        </tr>
+                                                    )                                            
+                                                })
+                                            }
+                                        </tbody>
+                                    </table>
+                                    :
+                                    <Loading />
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
