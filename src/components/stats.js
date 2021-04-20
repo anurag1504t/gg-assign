@@ -1,8 +1,8 @@
 import { Loading } from './loading';
 import moment from 'moment'
+import { Link } from 'react-router-dom';
 
 function Stats(props) {
-    console.log(props);
     if (props.isLoadingData || props.isLoadingList) {
         return(
             <div className="container">
@@ -39,7 +39,7 @@ function Stats(props) {
                     </div>
                     <div className="stats-app-data row">
                         <div className="stats-app-header col-12">
-                            <span className="fa fa-arrow-left"></span>
+                            <Link to="/dashboard"><span className="fa fa-arrow-left"></span></Link>
                             <div className="colored-box"></div>
                             <span className="app-item-company">
                                 <div className="app-item-company-name">{props.app.appName}</div>
