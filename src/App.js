@@ -1,36 +1,25 @@
-import {BrowserRouter,Route,Switch, useHistory,Redirect} from 'react-router-dom';
-import Dashboard from './components/dashboard';
-import Stats from './components/stats';
+import React, { Component } from 'react';
 import './App.css';
+import Main from './components/main';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 
-const Routing=()=>{
-    return (
-        <Switch>
-            <Route path='/dashboard'>
-                <Dashboard />
-            </Route>
-            <Route path='/stats'>
-                <Stats />
-            </Route>
-            <Route exact path="/" render={() => {
-                    return (
-                        <Redirect to='/dashboard' />
-                    )
-                }}
-            />
-        </Switch>
-      
-    )
-  }
+const store = ConfigureStore();
 
-function App() {
-    return (
-        <div className="App">            
-            <BrowserRouter>    
-                <Routing />
-            </BrowserRouter>
-        </div>
-    );
+class App extends Component {
+
+    render() {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div className="App">
+                        <Main />
+                    </div>
+                </BrowserRouter>
+            </Provider>
+        );
+    }
 }
 
 export default App;

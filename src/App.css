@@ -13,3 +13,85 @@
   display: flexbox;
   vertical-align: middle;
 }
+
+.stats-header {
+  background-color: blueviolet;
+  padding: 20px;
+  color: white;
+}
+
+.stats-header-adsoul {
+  padding: 10px;
+  font-family: monospace, monospace;
+}
+
+.stats-app-data {
+  padding: 20px;
+  display: block;
+}
+
+.stats-app-header {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+.fa {
+  padding: 20px;
+  padding-left: 55px;
+  align-items: center;
+  color: grey;
+}
+
+.colored-box {
+  height: 65px;
+  width: 65px;
+  background-color: orange;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.app-item-company-name {
+  font-size: 30px;
+}
+
+.app-item-publisher-name {
+  font-size: 15px;
+}
+
+.stats-app-table {
+  margin: 20px;
+  margin-top: 50px;
+  overflow-x: auto;
+}
+
+.stat-table-date {
+  text-align: left !important;
+  padding-left: 1px !important;
+}
+
+th {
+  text-align: right !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+td {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* @media screen and (min-width: 768px) {
+  [class="container"] {
+    width: 150% !important;
+  }
+
+} */
+
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    min-width: 90%;
+  }
+}

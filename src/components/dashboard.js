@@ -1,30 +1,16 @@
-import { useEffect, useState } from 'react';
 import { Card } from 'reactstrap';
 import desktop from '../assets/asset1.svg';
 import icon1 from '../assets/icon1.svg';
 import icon2 from '../assets/icon2.svg';
 import icon3 from '../assets/icon3.svg';
 import icon4 from '../assets/icon4.svg';
-function Dashboard() {
-    const [appList, setAppList] = useState();
-    useEffect( () => {
-        fetch('https://api.npoint.io/4ca5aaf459a573940672', {
-            method:"get",
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-        .then(res => res.json())
-        .then( apps => {
-            setAppList(apps);
-        })
-        .catch( err => console.log(err));
-    }, [])
+
+function Dashboard(props) {
     return (
         <div className="dashboard">            
             <div className="row">
                 <Left />
-                <Right appList={appList}/>
+                <Right appList={props.appsList.appsList} appData = {props.appData.appData}/>
             </div>
         </div>
     );
@@ -68,8 +54,8 @@ function Left() {
     );
 }
 
-function Right({appList}) {
-    console.log(appList);
+function Right({appList, appData}) {
+    // console.log(appData['1']);
     return (
         <div className="dashboard-right col-12 col-md-6">
             <div className="header">
@@ -79,6 +65,8 @@ function Right({appList}) {
                 {
                     appList?
                         appList.map( appItem => {
+                            let appDataWithId = (appData[`${appItem.id}`]);
+                            console.log(appDataWithId);
                             return(
                                 <Card className="app-item" key={appItem.id}>
                                     <div className="app-item-name">
