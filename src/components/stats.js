@@ -58,7 +58,7 @@ function Stats(props) {
                                                 <th>Ad Requests</th>
                                                 <th>Ad Responses</th>
                                                 <th>Impressions</th>
-                                                <th>Click8s</th>
+                                                <th>Clicks</th>
                                                 <th>Render Rate</th>
                                             </tr>
                                             {
