@@ -89,7 +89,7 @@ function Right({appList, appData}) {
     return (
         <div className="dashboard-right col-12 col-md-6">
             <div className="dashboard-right-header row">
-                <span className="dashboard-right-header-app">Apps</span>
+                <span className="dashboard-right-header-app col">Apps</span>
                 <span className="fa fa-cog ml-auto"></span>
             </div>
             <div className="dashboard-right-app-list container">
