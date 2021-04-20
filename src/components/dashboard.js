@@ -101,7 +101,7 @@ function Right({appList, appData}) {
                             return(
                                 <Card className="dashboard-right-app-item" key={appItem.id}>
                                     <div className="row">                                    
-                                        <div className="col-10">
+                                        <div className="col-9">
                                             <div className="dashboard-right-app-item-name row">
                                                 <span className="dashboard-colored-box"></span>
                                                 <span className="app-item-company">
@@ -128,7 +128,7 @@ function Right({appList, appData}) {
                                                 </div>
                                             </div>
                                             </div>
-                                        <div className="col-2">
+                                        <div className="col-3">
                                             <Link to={`/appstat/${appItem.id}`} ><span className="fa fa-arrow-right ml-12"></span></Link>
                                         </div>
                                     </div>

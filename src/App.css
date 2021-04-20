@@ -75,6 +75,7 @@
 } */
 
 .dashboard-right-app-list {
+  background-color:#F0F0F0;
   max-height: 80%;
   overflow-y: auto;
 }
