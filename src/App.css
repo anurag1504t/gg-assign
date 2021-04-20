@@ -102,7 +102,7 @@
 }
 
 .dashboard-right-app-item-name {
-  display: grid;
+  display: flex;
 }
 
 .dashboard-colored-box {
@@ -149,6 +149,7 @@
 }
 
 .stats-app-header {
+  padding-bottom: 40px;
   display: flex;
   flex-direction: row;
   float: left;
